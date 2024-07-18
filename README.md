@@ -216,6 +216,7 @@ test_accuracy = model.score(X_test_scaled, y_test)
 ```
 
 ## 7. Cross Validation
+
 ```python
 ## Cross Validation
 kfold = KFold(n_splits=10, shuffle=True, random_state=42)
