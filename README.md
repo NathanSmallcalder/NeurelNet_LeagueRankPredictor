@@ -190,20 +190,18 @@ def create_model():
         Dropout(0.5),
         Dense(64, activation='relu'),
         Dropout(0.5),
-        Dense(32, activation='relu'),  # Third hidden layer
+        Dense(32, activation='relu'), 
         Dropout(0.5),
         Dense(10, activation='softmax')
     ])
     model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
     return model
 
-# Wrap the model using the KerasClassifier
 model = KerasClassifier(build_fn=create_model, epochs=100, batch_size=64, verbose=0)
 
 # Split data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42)
 
-# Normalize the features
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
