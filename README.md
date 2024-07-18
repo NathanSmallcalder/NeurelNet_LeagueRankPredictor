@@ -261,7 +261,7 @@ Record and Calculate Metrics: We record the loss and accuracy for each fold and 
 
 Overall, the cross-validation results indicate that the neural network model performs exceptionally well on this dataset and generalizes effectively across different subsets of the data. The low variability in accuracy and loss scores also suggests that the model is robust and stable.
 
-8. Conclusion
+## 8. Conclusion
 
 The model demonstrates excellent performance with high accuracy and low loss. The results indicate that the neural network is effective at predicting player ranks based on gameplay statistics. Future work may include fine-tuning hyperparameters or exploring additional features.
 
