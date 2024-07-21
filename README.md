@@ -16,7 +16,8 @@ The objective is to predict the rank of LoL players based on their gameplay stat
 
 ### Database Setup
 
-```[ERD.pdf](https://github.com/user-attachments/files/16325911/ERD.pdf)
+[ERD.pdf](https://github.com/user-attachments/files/16325911/ERD.pdf)
+```
 
 docker run --name=LeagueStats --env="MYSQL_ROOT_PASSWORD=root_password" -p 3306:3306 -d mysql:latest
 
