@@ -107,29 +107,16 @@ In many real-world datasets, particularly those involving categorical outcomes s
 This imbalance often arises from data collection processes where an impartial variety of ranks might not be equally represented, resulting in a dataset where some classes have many more samples than others. To mitigate this issue, we use techniques such as oversampling to balance the class distribution in the dataset. Here, we'll perform class balancing by resampling the minority classes in our League of Legends dataset.
 
 ```python
-# Separate features (X) and target variable (y)
-X = df.drop('RankFk', axis=1) 
-y = df['RankFk']
 
-class_counts = y.value_counts()
+X = df_games.drop(columns=['RankFk'])
+y = df_games['RankFk']
+y = y.apply(adjust_labels)
 
-# Set a minimum threshold for class balancing 
-threshold = 5000 
+smote = SMOTE(sampling_strategy='auto', random_state=42)
+X_resampled, y_resampled = smote.fit_resample(X, y)
 
-resampled_data = []
-
-for rank, count in class_counts.items():
-    if count < threshold:
-        minority_class = df[df['RankFk'] == rank]
-        oversampled_minority = resample(minority_class, 
-                                        replace=True,     
-                                        n_samples=threshold,  
-                                        random_state=42)  
-        resampled_data.append(oversampled_minority)
-    else:
-        # Append majority class data without resampling
-        majority_class = df[df['RankFk'] == rank]
-        resampled_data.append(majority_class)
+df_resampled = pd.DataFrame(X_resampled, columns=X.columns)
+df_resampled['RankFk'] = y_resampled
 ```
 
 
