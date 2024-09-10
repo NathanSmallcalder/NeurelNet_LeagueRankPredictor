@@ -233,7 +233,7 @@ print(f"Standard Deviation of Loss: {np.std(loss_scores):.4f}")
 ```
 Implementation of Cross-Validation
 
-In this section, we use k-fold cross-validation to assess the performance of our neural network model. We will split the dataset into 10 folds, train the model on 9 folds, and test it on the remaining fold. This process is repeated 10 times, with each fold serving as the test set exactly once.
+In this section, we use k-fold cross-validation to assess the performance of our neural network model. To do this, the data is split into 10 folds, train the model on 9 folds, and test it on the remaining fold. This process is repeated 10 times, with each fold serving as the test set exactly once.
 
 Here is how we implement cross-validation for our neural network model:
 
@@ -247,7 +247,7 @@ Loop Through Folds: For each fold, we:
 
 Record and Calculate Metrics: We record the loss and accuracy for each fold and then calculate the mean and standard deviation of these metrics across all folds to get a comprehensive view of model performance.
 
-Overall, the cross-validation results indicate that the neural network model performs exceptionally well on this dataset and generalizes effectively across different subsets of the data. The low variability in accuracy and loss scores also suggests that the model is robust and stable.
+Overall, the cross-validation results indicate that the neural network model performs exceptionally well, and generalizes effectively across different subsets of the data. The low variability in accuracy and loss scores also suggests that the model is robust and stable.
 
 ## 8. Conclusion
 
